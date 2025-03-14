@@ -10218,6 +10218,9 @@ void CTFPlayer::CommitSuicide( bool bExplode /* = false */, bool bForce /*= fals
 //-----------------------------------------------------------------------------
 void CTFPlayer::CommitSuicideWithCustomRagdoll( int m_iCustomRagdoll /*= 0*/ )
 {
+	if ( !IsAlive() )
+		return;
+
 	CommitSuicide();
 
 	CTFRagdoll* pRagdoll = dynamic_cast<CTFRagdoll*>(m_hRagdoll.Get());
